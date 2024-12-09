@@ -8,10 +8,11 @@ namespace PokemonApp.DAL
         private readonly Client _client;
 
         private string _supabasekey = Environment.GetEnvironmentVariable("SUPABASE_APIKEY");
+        private readonly string supabaseurl = Environment.GetEnvironmentVariable("SUPABSE_URL");
         public SupabaseAddSet()
         {
             Console.WriteLine("Entering supabase constructor");
-            _client = new Client("https://fturujgsjfkhtqqwesla.supabase.co", _supabasekey);
+            _client = new Client(supabaseurl, _supabasekey);
             _client.InitializeAsync().Wait();
         }
 

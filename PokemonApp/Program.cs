@@ -12,9 +12,14 @@ class Program
     //Test scheduler during day 1 hour delay then swap to 6 for deployment.
     //Check posts made and correct formatting so they look better.
     //Old posts look weird on bluesky figure out a way to fix that. 
+    
 
+    //Size too big issue styll
+    //Fix error messages or see what can be done about those. 
+    //Test deployment again with twitter.
     static async Task Main(string[] args)
     {
+        var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
         var builder = WebApplication.CreateBuilder(args);
 
         // Register services

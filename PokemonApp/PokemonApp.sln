@@ -5,9 +5,9 @@ VisualStudioVersion = 17.13.35507.96 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonApp", "PokemonApp.csproj", "{A3A61770-4950-4307-A83F-1075511B924D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonApp.BLL", "..\PokemonApp.BLL\PokemonApp.BLL.csproj", "{0E129F4B-E7A4-4E5A-985A-D5A48912DF47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonApp.BLL", "../PokemonApp.BLL/PokemonApp.BLL.csproj", "{0E129F4B-E7A4-4E5A-985A-D5A48912DF47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonApp.DAL", "..\PokemonApp.DAL\PokemonApp.DAL.csproj", "{B821F2AB-E712-4FA6-BEF4-D493F50FCAF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonApp.DAL", "../PokemonApp.DAL/PokemonApp.DAL.csproj", "{B821F2AB-E712-4FA6-BEF4-D493F50FCAF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

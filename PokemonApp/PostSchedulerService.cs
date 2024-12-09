@@ -2,17 +2,23 @@
 
 namespace PokemonApp
 {
+    /// <summary>
+    /// Background service responsible for scheduling and executing periodic tasks
+    /// </summary>
     public class PostSchedulerService : BackgroundService
     {
         private readonly Scheduler _scheduler;
 
-        // Constructor Dependency Injection
         public PostSchedulerService(Scheduler scheduler)
         {
             _scheduler = scheduler;
         }
 
-        // Entry Point for Background Tasks
+        /// <summary>
+        /// Executes the background task logic.
+        /// </summary>
+        /// <param name="stoppingToken">Token to signal the service to stop</param>
+        /// <returns></returns>
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             // Run the first post immediately

@@ -49,7 +49,7 @@ namespace PokemonApp.BLL
                 // Save the padded image with compression
                 image.Save(memoryStream, new PngEncoder
                 {
-                    CompressionLevel = PngCompressionLevel.DefaultCompression // Maximize compression to reduce file size
+                    CompressionLevel = PngCompressionLevel.BestCompression // Maximize compression to reduce file size
                 });
 
                 return memoryStream.ToArray();
