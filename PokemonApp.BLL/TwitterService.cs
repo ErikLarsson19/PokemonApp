@@ -3,20 +3,25 @@ using LinqToTwitter;
 
 namespace PokemonApp.BLL
 {
+    /// <summary>
+    /// Responsible for posting and authenticating to Twitter (X).
+    /// </summary>
     public class TwitterService
     {
-
-      
         private string _apikey = Environment.GetEnvironmentVariable("TWITTER_APIKEY");
         private string _apikeysecret = Environment.GetEnvironmentVariable("TWITTER_APIKEYSECRET");
         private string _accesstoken = Environment.GetEnvironmentVariable("TWITTER_ACCESSTOKEN");
         private string _accesstokensecret = Environment.GetEnvironmentVariable("TWITTER_ACCESSTOKENSECRET");
-
-
         public TwitterService()
         {
         }
 
+        /// <summary>
+        /// Authenticates and posts to Twitter (X)
+        /// </summary>
+        /// <param name="tweetText">Text contents of the tweet</param>
+        /// <param name="imageUrl">Image of card being posted</param>
+        /// <returns></returns>
         public async Task PostTweetAsync(string tweetText, string imageUrl)
         {
             // Initialize Twitter context
@@ -66,9 +71,5 @@ namespace PokemonApp.BLL
                 Console.WriteLine($"Error posting tweet with image: {ex.Message}");
             }
         }
-
-        
-
-      
     }
 }

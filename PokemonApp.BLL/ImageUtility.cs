@@ -6,15 +6,27 @@ using SixLabors.ImageSharp.Processing;
 
 namespace PokemonApp.BLL
 {
+    /// <summary>
+    /// The ImageUtility class is used to help prepare images for upload to X and BlueSky.
+    /// </summary>
     public static class ImageUtility
     {
-
+        /// <summary>
+        /// Downloads an image from a given URL and returns the raw byte array.
+        /// </summary>
+        /// <param name="imageUrl">Url of image to download</param>
+        /// <returns>Raw byte array of image</returns>
         public static async Task<byte[]> DownloadImageAsync(string imageUrl)
         {
             using var httpClient = new HttpClient();
             return await httpClient.GetByteArrayAsync(imageUrl);
         }
 
+        /// <summary>
+        /// Processes the image and prepares for upload to BlueSky.
+        /// </summary>
+        /// <param name="originalImageBytes">Raw byte array of original image</param>
+        /// <returns>A task that resolves to a byte array representing the processed image</returns>
         public static Task<byte[]> ProcessImageForBlueSkyAsync(byte[] originalImageBytes)
         {
             return Task.Run(() =>

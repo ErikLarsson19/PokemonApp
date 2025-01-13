@@ -3,6 +3,12 @@
 
 namespace PokemonApp.DAL
 {
+    /// <summary>
+    /// The card class representing a Pokémon card in our application.
+    /// Uses the BaseModel from the Supabase package.
+    /// This makes it so that the Card can easily be inserted into Supabase as is.
+    /// This is necessary for future implementation of keeping track of what cards has been posted for example.
+    /// </summary>
     public class Card : BaseModel
     {
 
@@ -19,7 +25,6 @@ namespace PokemonApp.DAL
 
         public string ReleaseDate { get; set; }
 
-        
         public Card(string name, decimal marketPrice, string imageUrl, string rarity, string priceCategory, string setName, string releaseDate)
         {
             Name = name;
@@ -30,8 +35,6 @@ namespace PokemonApp.DAL
             SetName = setName;
             ReleaseDate = releaseDate;
         }
-
-    
         public Card()
         {
 

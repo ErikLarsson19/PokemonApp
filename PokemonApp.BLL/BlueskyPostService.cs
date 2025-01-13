@@ -6,6 +6,10 @@ using X.Bluesky.Models;
 
 namespace PokemonApp.BLL
 {
+    /// <summary>
+    /// This class handles sending the created post to BlueSky.
+    /// It uses the FishyFlip package.
+    /// </summary>
     public class BlueskyPostService
     {
 
@@ -19,6 +23,12 @@ namespace PokemonApp.BLL
             _atProtocol = InitializeProtocol();
         }
 
+        /// <summary>
+        /// Builds the protocol necessary to post on BlueSky.
+        /// Authenticates using our identifier and password.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         private ATProtocol InitializeProtocol()
         {
             var protocolBuilder = new ATProtocolBuilder()
@@ -35,7 +45,14 @@ namespace PokemonApp.BLL
             return protocolBuilder;
         }
 
-
+        /// <summary>
+        /// Creating a post with an image on BlueSky can be a bit tricky. 
+        /// In this method we use the ImageUtility class to download and clean the image so its ready to be posted.
+        /// Then the method fires the post created to BlueSky.
+        /// </summary>
+        /// <param name="content">This is the text displayed inside the post</param>
+        /// <param name="imageUrl">An image url of the selected Pokémon card</param>
+        /// <returns></returns>
         public async Task CreatePostWithImageAsync(string content, string imageUrl)
         {
             try
@@ -86,8 +103,5 @@ namespace PokemonApp.BLL
                 Console.WriteLine($"Error posting to BlueSky: {ex.Message}");
             }
         }
-
-
-     
     }
 }

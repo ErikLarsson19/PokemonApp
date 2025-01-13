@@ -1,9 +1,10 @@
-﻿
-using System.Text.Json;
-
+﻿using System.Text.Json;
 
 namespace PokemonApp.DAL
 {
+    /// <summary>
+    /// Responsible for fetching card details from the PokemonTCG Api.
+    /// </summary>
     public class PokemonTCGService
     {
 
@@ -12,11 +13,18 @@ namespace PokemonApp.DAL
 
         public PokemonTCGService()
         {
+            //Init HTTPClient and set the API key in the request header.
             _httpClient = new HttpClient();
             _httpClient.DefaultRequestHeaders.Add("X-Api-Key", _tcgApiKey);
         }
 
-
+        /// <summary>
+        /// Fetches a random card from the top precentile (top 15%) of the given set.
+        /// </summary>
+        /// <param name="setId">Id of the specified set</param>
+        /// <param name="percentile">Top 15% of cards market price</param>
+        /// <returns>A random card from the top precentile</returns>
+        /// <exception cref="Exception"></exception>
         public async Task<Card> FetchRandomTopMarketPriceCardAsync(string setId, double percentile = 0.15)
         {
             string url = $"https://api.pokemontcg.io/v2/cards?q=set.id:{setId}";
@@ -55,7 +63,12 @@ namespace PokemonApp.DAL
             throw new Exception($"No cards found for set ID: {setId}");
         }
 
-
+        /// <summary>
+        /// Fetches a random "throw back" card from the given set id.
+        /// </summary>
+        /// <param name="setId">The targeted set</param>
+        /// <returns>A card from an older set</returns>
+        /// <exception cref="Exception"></exception>
         public async Task<Card> FetchRandomThrowbackCardAsync(string setId)
         {
             string url = $"https://api.pokemontcg.io/v2/cards?q=set.id:{setId}";
@@ -82,6 +95,11 @@ namespace PokemonApp.DAL
             throw new Exception($"No cards found for set ID: {setId}");
         }
 
+        /// <summary>
+        /// Extracts the details of a card from a JSON element
+        /// </summary>
+        /// <param name="card">JsonElement representing a card</param>
+        /// <returns>A card object with extracted details</returns>
         private Card ExtractCardDetails(JsonElement card)
         {
             // Basic details
@@ -119,7 +137,13 @@ namespace PokemonApp.DAL
             );
         }
 
-
+        /// <summary>
+        /// Used to extract the price from the cards data
+        /// </summary>
+        /// <param name="card">Json element representing the card</param>
+        /// <param name="format">Format of the card (e.g "holofoil"</param>
+        /// <param name="priceType">The type of price (e.g "market")</param>
+        /// <returns>Returns the price if found.</returns>
         private decimal? ExtractPrice(JsonElement card, string format, string priceType)
         {
             if (card.TryGetProperty("tcgplayer", out JsonElement tcgplayerElement) &&
@@ -134,7 +158,11 @@ namespace PokemonApp.DAL
             return null; // Return null if no valid price is found
         }
 
-
+        /// <summary>
+        /// Fetches all the sets from the Pokémon TCG Api
+        /// needs update.
+        /// </summary>
+        /// <returns>Returns the string of all the sets.</returns>
         public async Task<string> FetchAllTheSetsAsync()
         {
 

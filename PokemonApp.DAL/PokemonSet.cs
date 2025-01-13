@@ -2,6 +2,9 @@
 
 namespace PokemonApp.DAL
 {
+    /// <summary>
+    /// Not used in application but needed to set up the PokemonSet table in supabase.
+    /// </summary>
     public class PokemonSet : BaseModel
     {
         public string Identifier { get; set; }

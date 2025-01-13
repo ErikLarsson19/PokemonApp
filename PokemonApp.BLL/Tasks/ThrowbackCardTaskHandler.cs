@@ -1,6 +1,12 @@
 ﻿
 namespace PokemonApp.BLL.Tasks
 {
+    /// <summary>
+    /// See HighMarketPriceTaskHandler for more information.
+    /// The only difference from this handler and the one above is that 
+    /// this handler fires of "ThrowBack" cards. Cards that are older and 
+    /// without a focus on market price.
+    /// </summary>
     public class ThrowbackCardTaskHandler : IScheduledTaskHandler
     {
         private readonly PokemonCardFetcherService _pokemonCardFetcherService;

@@ -3,6 +3,9 @@ using Supabase.Postgrest.Models;
 
 namespace PokemonApp.DAL
 {
+    /// <summary>
+    /// Not used in the application only for setting up set data into supabase.
+    /// </summary>
     public class SupabaseAddSet
     {
         private readonly Client _client;

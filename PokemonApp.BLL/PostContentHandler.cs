@@ -33,8 +33,10 @@ namespace PokemonApp.BLL
 
 
         /// <summary>
-        /// Generates post content for a throwback card.
+        /// Generates text content for a throw back card.
         /// </summary>
+        /// <param name="card">A Pokémon card</param>
+        /// <returns>A string containing the content of the post, name, setname and a release date</returns>
         public string GenerateThrowbackPostContent(Card card)
         {
             // Randomly pick a template
@@ -43,8 +45,10 @@ namespace PokemonApp.BLL
         }
 
         /// <summary>
-        /// Generates post content for a high-market-price card.
+        /// Same as above but for a card with high market price.
         /// </summary>
+        /// <param name="card">A Pokémon card</param>
+        /// <returns>A string containing content of the post, name, setname and market price</returns>
         public string GenerateHighMarketPricePostContent(Card card)
         {
             // Randomly pick a template
