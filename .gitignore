@@ -1,16 +1,85 @@
-# Ignore build outputs
-bin/
-obj/
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
 publish/
+Published/
 
-# Ignore Visual Studio specific files
+# Visual Studio files
 .vs/
-*.user
+.vscode/
 *.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.meta
+*.swp
 
-# Ignore temporary files
+# Publishing profiles
+Properties/PublishProfiles/
+*.pubxml
+*.pubxml.user
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Environment Files
+.env
+*.env
+appsettings.json
+appsettings.*.json
+appsettings.Development.json
+config.json
+secrets.json
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.cache
+*.DS_Store
+
+# Dependencies
+packages/
+*.nupkg
+
+# Logs and databases
 *.log
-*.tmp
-
-# Ignore other unnecessary files
+*.sqlite
 *.db
+*.sqlite3
+
+# Local test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Temporary files
+[Tt]emp/
+[Tt]mp/
+*.tmp
+*.temp
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
